@@ -5,6 +5,10 @@ inputs:
     description: 'wheather to cache depencies or not'
     required: false
     default: 'true'
+outputs:
+  used-cache:
+    description: 'tells if is used or not'
+    value: ${{steps.evaluate.outputs.cache-used}}
 runs:
   using: composite
   steps:
@@ -18,4 +22,8 @@ runs:
     - name: Install dependencies
       if: ${{steps.cache.outputs.cache-hit != 'true'}}
       run: npm ci
+      shell: bash
+    - name: evaluate output
+      id: evaluate
+      run: echo"cache-used=${{steps.cache.outputs.cache-hit}}" >> $GITHUB_OUTPUT
       shell: bash
