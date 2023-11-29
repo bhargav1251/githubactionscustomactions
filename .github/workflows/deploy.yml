@@ -63,4 +63,4 @@ jobs:
       - name: Output contents
         run: ls
       - name: Deploy site
-        run: echo "Deploying..."
+        uses: ./.github/actions/deploy-to-s3

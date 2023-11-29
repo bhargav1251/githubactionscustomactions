@@ -1,0 +1,5 @@
+name: deploy application to s3
+description: deploy application to aws s3 as a static website
+runs:
+  using: node20
+  main: index.js
