@@ -25,5 +25,5 @@ runs:
       shell: bash
     - name: evaluate output
       id: evaluate
-      run: echo"cache-used=${{steps.cache.outputs.cache-hit}}" >> $GITHUB_OUTPUT
+      run: echo"cache-used='${{steps.cache.outputs.cache-hit}}'" >> $GITHUB_OUTPUT
       shell: bash
