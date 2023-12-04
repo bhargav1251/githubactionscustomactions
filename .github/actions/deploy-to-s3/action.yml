@@ -1,5 +1,20 @@
 name: deploy application to s3
 description: deploy application to aws s3 as a static website
+inputs:
+  bucket:
+    description: This is s3 bucket name
+    required: true
+  bucket-region:
+    description: aws account bucket region
+    required: false
+    default: us-east-1
+  artifact-key:
+    description: the artifact key that need to be downloaded
+    required: true
+outputs:
+  website-url:
+    description: This is hosted webstie url
+
 runs:
   using: node20
   main: index.js
