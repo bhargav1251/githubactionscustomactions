@@ -67,5 +67,7 @@ jobs:
         uses: ./.github/actions/deploy-to-s3
       - name: output website address
         env:
-          url: {{steps.deploy-to-s3.outputs.website-url}}
-        run: echo "$url"
+          url: ${{steps.deploy-to-s3.outputs.website-url}}
+        run: |        
+          echo 'website url ${{steps.deploy-to-s3.outputs.website-url}}'
+          echo 'url ${{ env.url}}'
